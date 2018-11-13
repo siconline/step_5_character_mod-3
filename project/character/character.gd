@@ -4,7 +4,6 @@ extends KinematicBody2D
 # switch between COLOR or STYLE
 var state = 0 # variable modified by char_mod.gd --> _on_color_pressed() or _on_style_pressed()
 
-
 # HAIR COLOR PROPERTIES
 var hair_color = 0
 var arr_hair_color = \
@@ -136,5 +135,6 @@ func list_files_in_directory(path):
 
 
 func fill_array_textures(arr, directory, directory_type):
-	for file_name in list_files_in_directory("res://images/" + directory + "/" + directory_type):
-		arr.append(load("res://images/" + directory +"/" + directory_type + "/" + file_name))
+	var dir = "res://images/" + directory + "/" + directory_type + "/"
+	for file_name in list_files_in_directory(dir):
+		arr.append(load(dir + file_name))
