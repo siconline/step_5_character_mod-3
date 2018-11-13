@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://character/character.gd" type="Script" id=1]
 [ext_resource path="res://character/images/body.png" type="Texture" id=2]
@@ -7,29 +7,21 @@
 [ext_resource path="res://character/images/upper_arm_l.png" type="Texture" id=5]
 [ext_resource path="res://character/images/fore_arm_l.png" type="Texture" id=6]
 [ext_resource path="res://images/char_part_1/normal/part_01.png" type="Texture" id=7]
-[ext_resource path="res://images/char_part_1/clicked/part_01-clicked.png" type="Texture" id=8]
-[ext_resource path="res://images/char_part_1/bitmap/part_01bm.png" type="BitMap" id=9]
-[ext_resource path="res://images/char_part_0/normal/part_01.png" type="Texture" id=10]
-[ext_resource path="res://images/char_part_0/bitmap/part_01bm.png" type="BitMap" id=11]
-[ext_resource path="res://character/images/hip.png" type="Texture" id=12]
-[ext_resource path="res://character/images/leg_r.png" type="Texture" id=13]
-[ext_resource path="res://character/images/shin_r.png" type="Texture" id=14]
-[ext_resource path="res://character/images/foot_r.png" type="Texture" id=15]
-[ext_resource path="res://character/images/leg_l.png" type="Texture" id=16]
-[ext_resource path="res://character/images/shin_l.png" type="Texture" id=17]
-[ext_resource path="res://character/images/foot_l.png" type="Texture" id=18]
-[ext_resource path="res://character/images/complete.png" type="Texture" id=19]
+[ext_resource path="res://images/char_part_0/normal/part_01.png" type="Texture" id=8]
+[ext_resource path="res://character/images/hip.png" type="Texture" id=9]
+[ext_resource path="res://character/images/leg_r.png" type="Texture" id=10]
+[ext_resource path="res://character/images/shin_r.png" type="Texture" id=11]
+[ext_resource path="res://character/images/foot_r.png" type="Texture" id=12]
+[ext_resource path="res://character/images/leg_l.png" type="Texture" id=13]
+[ext_resource path="res://character/images/shin_l.png" type="Texture" id=14]
+[ext_resource path="res://character/images/foot_l.png" type="Texture" id=15]
+[ext_resource path="res://character/images/complete.png" type="Texture" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
-
-[sub_resource type="StreamTexture" id=2]
-
-flags = 4
-load_path = "res://.import/part_01-clicked.png-52978980a7bf9fa3ed204b2c79d69b12.stex"
 
 [node name="character" type="KinematicBody2D"]
 input_pickable = false
@@ -123,8 +115,6 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
-texture_click_mask = ExtResource( 9 )
 
 [node name="hair" type="TextureButton" parent="base/body/head"]
 anchor_left = 0.0
@@ -132,9 +122,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -4.0
-margin_top = 6.0
+margin_top = 1.0
 margin_right = 509.0
-margin_bottom = 519.0
+margin_bottom = 514.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -146,21 +136,19 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 10 )
-texture_hover = SubResource( 2 )
-texture_click_mask = ExtResource( 11 )
+texture_normal = ExtResource( 8 )
 
 [node name="hip" type="Sprite" parent="base"]
 position = Vector2( 13.4615, 103.164 )
 z_index = -1
-texture = ExtResource( 12 )
+texture = ExtResource( 9 )
 offset = Vector2( 0.701538, 0.884735 )
 
 [node name="leg_r" type="Sprite" parent="base/hip"]
 position = Vector2( -38.6784, -2.41281 )
 rotation = -0.00622554
 z_index = -1
-texture = ExtResource( 13 )
+texture = ExtResource( 10 )
 offset = Vector2( 1.70642, 20.4768 )
 __meta__ = {
 "_edit_ik_": true
@@ -170,7 +158,7 @@ __meta__ = {
 position = Vector2( 2.41544, 43.2816 )
 rotation = 0.00622554
 z_index = -1
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 offset = Vector2( 0.0151672, 11.3268 )
 __meta__ = {
 "_edit_bone_": true
@@ -178,7 +166,7 @@ __meta__ = {
 
 [node name="foot_r" type="Sprite" parent="base/hip/leg_r/shin_r"]
 position = Vector2( -13.9318, 67.6689 )
-texture = ExtResource( 15 )
+texture = ExtResource( 12 )
 offset = Vector2( 11.7704, -4.53964 )
 __meta__ = {
 "_edit_bone_": true
@@ -194,7 +182,7 @@ __meta__ = {
 position = Vector2( 19.8383, -17.6771 )
 rotation = -0.0165122
 z_index = -2
-texture = ExtResource( 16 )
+texture = ExtResource( 13 )
 offset = Vector2( 12.0429, 24.7018 )
 __meta__ = {
 "_edit_ik_": true
@@ -204,7 +192,7 @@ __meta__ = {
 position = Vector2( 21.074, 39.9866 )
 rotation = 0.0215325
 z_index = -1
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( -4.32285, 1.08072 )
 __meta__ = {
 "_edit_bone_": true
@@ -213,7 +201,7 @@ __meta__ = {
 [node name="foot_l" type="Sprite" parent="base/hip/leg_l/shin_l"]
 position = Vector2( -12.8236, 59.0278 )
 rotation = -0.00502013
-texture = ExtResource( 18 )
+texture = ExtResource( 15 )
 offset = Vector2( 13.2832, -7.15326 )
 __meta__ = {
 "_edit_bone_": true
@@ -234,7 +222,7 @@ __meta__ = {
 [node name="complete" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.396078 )
-texture = ExtResource( 19 )
+texture = ExtResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }

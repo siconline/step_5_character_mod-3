@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 
-var state = 0
+# switch between COLOR or STYLE
+var state = 0 # variable modified by char_mod.gd --> _on_color_pressed() or _on_style_pressed()
 
 
 # HAIR COLOR PROPERTIES
@@ -52,6 +53,7 @@ func _ready():
 	fill_array_textures(arr_head_texture_clicked, 'char_part_1', 'clicked')
 	fill_array_textures(arr_head_texture_bitmap, 'char_part_1', 'bitmap')
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -66,6 +68,7 @@ func _process(delta):
 	_change_head_texture(head_texture)
 	# current color
 	_change_head_color(head_color)
+
 
 func _on_hair_pressed():
 	
@@ -114,8 +117,6 @@ func _change_head_color(value):
 
 
 
-
-
 func list_files_in_directory(path):
     var files = []
     var dir = Directory.new()
@@ -134,6 +135,6 @@ func list_files_in_directory(path):
     return files
 
 
-func fill_array_textures(arr, part, value):
-	for texture in list_files_in_directory('res://images/' + part + '/' + value):
-		arr.append(load('res://images/' + part +'/' + value +'/' + texture))
+func fill_array_textures(arr, directory, directory_type):
+	for file_name in list_files_in_directory("res://images/" + directory + "/" + directory_type):
+		arr.append(load("res://images/" + directory +"/" + directory_type + "/" + file_name))
